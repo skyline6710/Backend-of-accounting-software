@@ -12,8 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('invoice_audits', function (Blueprint $table) {
-            $table->uuid('UUID')->primary();
-            $table->foreign('invoices_UUID')->references('UUID')->on('invoices')->onDelete('cascade');
+            $table->uuid('id')->primary();
+            $table->foreign('invoices_id')->references('id')->on('invoices')->onDelete('cascade');
             $table->float('total_price');
             $table->softDeletes();
             $table->timestamps();

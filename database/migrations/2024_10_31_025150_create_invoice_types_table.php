@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('invoice_types', function (Blueprint $table) {
-            $table->uuid('UUID')->primary();
+            $table->uuid('id')->primary();
             $table->integer('type');
             $table->timestamps();
         });

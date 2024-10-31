@@ -10,14 +10,14 @@ class BranchCurrencies extends Model
 {
     use HasFactory, SoftDeletes;
 
-    protected $primaryKey = 'UUID';
+    protected $primaryKey = 'id';
     public $incrementing = false;
     protected $keyType = 'string';
 
-    protected $fillable = ['branch_UUID', 'currency', 'xchange_rate', 'corresponding_currency'];
+    protected $fillable = ['branch_id', 'currency', 'xchange_rate', 'corresponding_currency'];
 
     public function branch()
     {
-        return $this->belongsTo(branchs::class, 'branch_UUID', 'UUID');
+        return $this->belongsTo(branchs::class, 'branch_id', 'id');
     }
 }

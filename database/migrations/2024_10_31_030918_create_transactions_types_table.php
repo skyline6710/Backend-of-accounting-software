@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('transactions_types', function (Blueprint $table) {
-            $table->uuid('UUID')->primary();
+            $table->uuid('id')->primary();
             $table->string('type');
             $table->softDeletes();
             $table->timestamps();

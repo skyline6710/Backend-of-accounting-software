@@ -12,13 +12,13 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('company_profiles', function (Blueprint $table) {
-            $table->uuid('UUID')->primary();
-            $table->uuid('company_UUID');
+            $table->uuid('id')->primary();
+            $table->uuid('company_id');
             $table->string('profile_name');
             $table->string('description')->nullable();
             $table->string('logo')->nullable();
             $table->softDeletes()->nullable();
-            $table->foreign('company_UUID')->references('UUID')->on('companies')->onDelete('cascade');
+            $table->foreign('company_id')->references('id')->on('companies')->onDelete('cascade');
             $table->timestamps();
         });
     }

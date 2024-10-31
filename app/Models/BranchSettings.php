@@ -10,14 +10,14 @@ class BranchSettings extends Model
 {
     use HasFactory, SoftDeletes;
 
-    protected $primaryKey = 'UUID';
+    protected $primaryKey = 'id';
     public $incrementing = false;
     protected $keyType = 'string';
 
-    protected $fillable = ['company_UUID'];
+    protected $fillable = ['company_id'];
 
     public function company()
     {
-        return $this->belongsTo(companies::class, 'company_UUID', 'UUID');
+        return $this->belongsTo(companies::class, 'company_id', 'id');
     }
 }

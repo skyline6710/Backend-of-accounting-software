@@ -12,8 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('warehouses', function (Blueprint $table) {
-            $table->uuid('UUID')->primary();
-            $table->foreign('branch_UUID')->references('UUID')->on('branchs')->onDelete('cascade');
+            $table->uuid('id')->primary();
+            $table->foreign('branch_id')->references('id')->on('branchs')->onDelete('cascade');
             $table->float('warehouse_number');
             $table->float('capacity');
             $table->text('address');

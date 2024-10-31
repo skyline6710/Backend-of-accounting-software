@@ -9,24 +9,24 @@ class Employee extends Model
 {
     use HasFactory;
 
-    protected $primaryKey = 'UUID';
+    protected $primaryKey = 'id';
     public $incrementing = false;
     protected $keyType = 'string';
 
-    protected $fillable = ['branch_UUID', 'user_UUID', 'full_name', 'avatar', 'email', 'phone_number', 'gender', 'address', 'base_salary'];
+    protected $fillable = ['branch_id', 'user_id', 'full_name', 'avatar', 'email', 'phone_number', 'gender', 'address', 'base_salary'];
 
     public function branch()
     {
-        return $this->belongsTo(branchs::class, 'branch_UUID', 'UUID');
+        return $this->belongsTo(branchs::class, 'branch_id', 'id');
     }
 
     public function user()
     {
-        return $this->belongsTo(User::class, 'user_UUID', 'UUID');
+        return $this->belongsTo(User::class, 'user_id', 'id');
     }
     public function salaries()
     {
-        return $this->hasMany(Salary::class, 'employees_UUID', 'UUID');
+        return $this->hasMany(Salary::class, 'employees_id', 'id');
     }
 
 }

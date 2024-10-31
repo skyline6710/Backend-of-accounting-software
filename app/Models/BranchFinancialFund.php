@@ -10,14 +10,14 @@ class BranchFinancialFund extends Model
 {
     use HasFactory, SoftDeletes;
 
-    protected $primaryKey = 'UUID';
+    protected $primaryKey = 'id';
     public $incrementing = false;
     protected $keyType = 'string';
 
-    protected $fillable = ['company_UUID', 'total_amount', 'last_edit_date'];
+    protected $fillable = ['company_id', 'total_amount', 'last_edit_date'];
 
     public function company()
     {
-        return $this->belongsTo(companies::class, 'company_UUID', 'UUID');
+        return $this->belongsTo(companies::class, 'company_id', 'id');
     }
 }

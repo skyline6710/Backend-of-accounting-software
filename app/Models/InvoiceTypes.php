@@ -8,7 +8,7 @@ class InvoiceTypes extends Model
 {
     use HasFactory;
 
-    protected $primaryKey = 'UUID';
+    protected $primaryKey = 'id';
     public $incrementing = false;
     protected $keyType = 'string';
 
@@ -16,6 +16,6 @@ class InvoiceTypes extends Model
 
     public function invoices()
     {
-        return $this->hasMany(Invoice::class, 'invoice_types_UUID', 'UUID');
+        return $this->hasMany(Invoice::class, 'invoice_types_id', 'id');
     }
 }

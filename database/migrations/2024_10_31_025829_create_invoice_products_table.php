@@ -12,9 +12,9 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('invoice_products', function (Blueprint $table) {
-            $table->uuid('UUID')->primary();
-            $table->foreign('invoices_UUID')->references('UUID')->on('invoices')->onDelete('cascade');
-            $table->foreign('products_UUID')->references('UUID')->on('products')->onDelete('cascade');
+            $table->uuid('id')->primary();
+            $table->foreign('invoices_id')->references('id')->on('invoices')->onDelete('cascade');
+            $table->foreign('products_id')->references('id')->on('products')->onDelete('cascade');
             $table->float('total_price');
             $table->float('quantity');
             $table->softDeletes();

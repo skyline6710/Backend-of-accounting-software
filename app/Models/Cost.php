@@ -8,7 +8,7 @@ class Cost extends Model
 {
     use HasFactory;
 
-    protected $primaryKey = 'UUID';
+    protected $primaryKey = 'id';
     public $incrementing = false;
     protected $keyType = 'string';
 
@@ -16,6 +16,6 @@ class Cost extends Model
 
     public function transactions()
     {
-        return $this->hasMany(Transaction::class, 'cost_UUID', 'UUID');
+        return $this->hasMany(Transaction::class, 'cost_id', 'id');
     }
 }

@@ -12,8 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('salaries', function (Blueprint $table) {
-            $table->uuid('UUID')->primary();
-            $table->foreign('employees_UUID')->references('UUID')->on('employees')->onDelete('cascade');
+            $table->uuid('id')->primary();
+            $table->foreign('employees_id')->references('id')->on('employees')->onDelete('cascade');
             $table->float('salary_mount');
             $table->softDeletes();
             $table->timestamps();

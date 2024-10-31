@@ -10,29 +10,29 @@ class branchs extends Model
 {
     use HasFactory, SoftDeletes;
 
-    protected $primaryKey = 'UUID';
+    protected $primaryKey = 'id';
     public $incrementing = false;
     protected $keyType = 'string';
 
-    protected $fillable = ['company_UUID', 'is_main_branch', 'branch_location', 'branch_number', 'number_of_employees'];
+    protected $fillable = ['company_id', 'is_main_branch', 'branch_location', 'branch_number', 'number_of_employees'];
 
     public function company()
     {
-        return $this->belongsTo(companies::class, 'company_UUID', 'UUID');
+        return $this->belongsTo(companies::class, 'company_id', 'id');
     }
 
     public function employees()
     {
-        return $this->hasMany(Employee::class, 'branch_UUID', 'UUID');
+        return $this->hasMany(Employee::class, 'branch_id', 'id');
     }
     public function currencies()
     {
-        return $this->hasMany(BranchCurrencies::class, 'branch_UUID', 'UUID');
+        return $this->hasMany(BranchCurrencies::class, 'branch_id', 'id');
     }
 
     public function warehouses()
     {
-        return $this->hasMany(Warehouse::class, 'branch_UUID', 'UUID');
+        return $this->hasMany(Warehouse::class, 'branch_id', 'id');
     }
 
 }

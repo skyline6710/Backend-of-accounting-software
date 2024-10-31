@@ -10,14 +10,14 @@ class InvoiceAudits extends Model
 {
     use HasFactory, SoftDeletes;
 
-    protected $primaryKey = 'UUID';
+    protected $primaryKey = 'id';
     public $incrementing = false;
     protected $keyType = 'string';
 
-    protected $fillable = ['invoices_UUID', 'total_price'];
+    protected $fillable = ['invoices_id', 'total_price'];
 
     public function invoice()
     {
-        return $this->belongsTo(Invoice::class, 'invoices_UUID', 'UUID');
+        return $this->belongsTo(Invoice::class, 'invoices_id', 'id');
     }
 }

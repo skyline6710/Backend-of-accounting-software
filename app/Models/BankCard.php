@@ -9,14 +9,14 @@ class BankCard extends Model
 {
     use HasFactory;
 
-    protected $primaryKey = 'UUID';
+    protected $primaryKey = 'id';
     public $incrementing = false;
     protected $keyType = 'string';
 
-    protected $fillable = ['users_UUID'];
+    protected $fillable = ['users_id'];
 
     public function user()
     {
-        return $this->belongsTo(User::class, 'users_UUID', 'UUID');
+        return $this->belongsTo(User::class, 'users_id', 'id');
     }
 }

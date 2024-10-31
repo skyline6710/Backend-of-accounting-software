@@ -10,23 +10,23 @@ class Product extends Model
 {
     use HasFactory, SoftDeletes;
 
-    protected $primaryKey = 'UUID';
+    protected $primaryKey = 'id';
     public $incrementing = false;
     protected $keyType = 'string';
 
     protected $fillable = [
-        'warehouses_UUID', 'title', 'description', 'quantity_in_warehouse',
+        'warehouses_id', 'title', 'description', 'quantity_in_warehouse',
         'selling_price', 'buying_price', 'avatar'
     ];
 
     public function warehouse()
     {
-        return $this->belongsTo(Warehouse::class, 'warehouses_UUID', 'UUID');
+        return $this->belongsTo(Warehouse::class, 'warehouses_id', 'id');
     }
 
     public function images()
     {
-        return $this->hasMany(ProductImage::class, 'products_UUID', 'UUID');
+        return $this->hasMany(ProductImage::class, 'products_id', 'id');
     }
 
 

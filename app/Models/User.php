@@ -48,15 +48,15 @@ class User extends Authenticatable
 
     public function bankCards()
     {
-        return $this->hasMany(BankCard::class, 'users_UUID', 'UUID');
+        return $this->hasMany(BankCard::class, 'users_id', 'id');
     }
     public function profile()
     {
-        return $this->hasOne(UserProfile::class, 'users_UUID', 'UUID');
+        return $this->hasOne(UserProfile::class, 'users_id', 'id');
     }
     public function transactions()
     {
-        return $this->hasMany(Transaction::class, 'users_UUID', 'UUID');
+        return $this->hasMany(Transaction::class, 'users_id', 'id');
     }
 
 }

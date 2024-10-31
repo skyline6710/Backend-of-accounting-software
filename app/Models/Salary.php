@@ -10,15 +10,15 @@ class Salary extends Model
 {
     use HasFactory, SoftDeletes;
 
-    protected $primaryKey = 'UUID';
+    protected $primaryKey = 'id';
     public $incrementing = false;
     protected $keyType = 'string';
 
-    protected $fillable = ['employees_UUID', 'salary_mount'];
+    protected $fillable = ['employees_id', 'salary_mount'];
 
     public function employee()
     {
-        return $this->belongsTo(Employee::class, 'employees_UUID', 'UUID');
+        return $this->belongsTo(Employee::class, 'employees_id', 'id');
     }
 
 }

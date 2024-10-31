@@ -10,7 +10,7 @@ class companies extends Model
 {
     use HasFactory, SoftDeletes;
 
-    protected $primaryKey = 'UUID';
+    protected $primaryKey = 'id';
     public $incrementing = false;
     protected $keyType = 'string';
 
@@ -18,16 +18,16 @@ class companies extends Model
 
     public function profiles()
     {
-        return $this->hasMany(company_profile::class, 'company_UUID', 'UUID');
+        return $this->hasMany(company_profile::class, 'company_id', 'id');
     }
 
     public function branches()
     {
-        return $this->hasMany(branchs::class, 'company_UUID', 'UUID');
+        return $this->hasMany(branchs::class, 'company_id', 'id');
     }
     public function financialFunds()
     {
-        return $this->hasMany(BranchFinancialFund::class, 'company_UUID', 'UUID');
+        return $this->hasMany(BranchFinancialFund::class, 'company_id', 'id');
     }
 
 }

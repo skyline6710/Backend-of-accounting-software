@@ -4394,7 +4394,7 @@
             "license": [
                 "MIT"
             ],
-            "description": "A PHP library for generating and working with universally unique identifiers (UUIDs).",
+            "description": "A PHP library for generating and working with universally unique identifiers (ids).",
             "keywords": [
                 "guid",
                 "identifier",

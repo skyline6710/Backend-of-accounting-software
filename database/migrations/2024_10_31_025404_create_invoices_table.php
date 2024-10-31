@@ -12,8 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('invoices', function (Blueprint $table) {
-            $table->uuid('UUID')->primary();
-            $table->foreign('invoice_types_UUID')->references('UUID')->on('invoice_types')->onDelete('cascade');
+            $table->uuid('id')->primary();
+            $table->foreign('invoice_types_id')->references('id')->on('invoice_types')->onDelete('cascade');
             $table->float('total_price');
             $table->float('quantity');
             $table->float('discount')->nullable();

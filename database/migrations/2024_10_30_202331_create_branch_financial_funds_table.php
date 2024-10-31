@@ -12,8 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('branch_financial_funds', function (Blueprint $table) {
-            $table->uuid('UUID')->primary();
-            $table->foreign('company_UUID')->references('UUID')->on('companies')->onDelete('cascade');
+            $table->uuid('id')->primary();
+            $table->foreign('company_id')->references('id')->on('companies')->onDelete('cascade');
             $table->dateTime('total_amount');
             $table->dateTime('last_edit_date');
             $table->softDeletes();

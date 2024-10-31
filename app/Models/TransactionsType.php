@@ -10,7 +10,7 @@ class TransactionsType extends Model
 {
     use HasFactory, SoftDeletes;
 
-    protected $primaryKey = 'UUID';
+    protected $primaryKey = 'id';
     public $incrementing = false;
     protected $keyType = 'string';
 
@@ -18,6 +18,6 @@ class TransactionsType extends Model
 
     public function transactions()
     {
-        return $this->hasMany(Transaction::class, 'transactions_types_UUID', 'UUID');
+        return $this->hasMany(Transaction::class, 'transactions_types_id', 'id');
     }
 }

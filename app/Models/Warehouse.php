@@ -10,19 +10,19 @@ class Warehouse extends Model
 {
     use HasFactory, SoftDeletes;
 
-    protected $primaryKey = 'UUID';
+    protected $primaryKey = 'id';
     public $incrementing = false;
     protected $keyType = 'string';
 
-    protected $fillable = ['branch_UUID', 'warehouse_number', 'capacity', 'address', 'number_of_products_is', 'last_entry_date', 'last_dispatch_date'];
+    protected $fillable = ['branch_id', 'warehouse_number', 'capacity', 'address', 'number_of_products_is', 'last_entry_date', 'last_dispatch_date'];
 
     public function branch()
     {
-        return $this->belongsTo(branchs::class, 'branch_UUID', 'UUID');
+        return $this->belongsTo(branchs::class, 'branch_id', 'id');
     }
     public function products()
     {
-        return $this->hasMany(Product::class, 'warehouses_UUID', 'UUID');
+        return $this->hasMany(Product::class, 'warehouses_id', 'id');
     }
 
 }

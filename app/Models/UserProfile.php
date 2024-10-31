@@ -9,16 +9,16 @@ class UserProfile extends Model
 {
     use HasFactory;
 
-    protected $primaryKey = 'UUID';
+    protected $primaryKey = 'id';
     public $incrementing = false;
     protected $keyType = 'string';
 
     protected $fillable = [
-        'users_UUID', 'full_name', 'phone_number', 'address', 'avatar', 'gender'
+        'users_id', 'full_name', 'phone_number', 'address', 'avatar', 'gender'
     ];
 
     public function user()
     {
-        return $this->belongsTo(User::class, 'users_UUID', 'UUID');
+        return $this->belongsTo(User::class, 'users_id', 'id');
     }
 }

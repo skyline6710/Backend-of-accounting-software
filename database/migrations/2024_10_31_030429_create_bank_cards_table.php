@@ -12,8 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('bank_cards', function (Blueprint $table) {
-            $table->uuid('UUID')->primary();
-            $table->foreign('users_UUID')->references('UUID')->on('users')->onDelete('cascade');
+            $table->uuid('id')->primary();
+            $table->foreign('users_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
     }

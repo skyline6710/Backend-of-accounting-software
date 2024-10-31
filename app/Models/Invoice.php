@@ -10,24 +10,24 @@ class Invoice extends Model
 {
     use HasFactory, SoftDeletes;
 
-    protected $primaryKey = 'UUID';
+    protected $primaryKey = 'id';
     public $incrementing = false;
     protected $keyType = 'string';
 
-    protected $fillable = ['invoice_types_UUID', 'total_price', 'quantity', 'discount'];
+    protected $fillable = ['invoice_types_id', 'total_price', 'quantity', 'discount'];
 
     public function invoiceType()
     {
-        return $this->belongsTo(InvoiceTypes::class, 'invoice_types_UUID', 'UUID');
+        return $this->belongsTo(InvoiceTypes::class, 'invoice_types_id', 'id');
     }
 
     public function products()
     {
-        return $this->hasMany(InvoiceProduct::class, 'invoices_UUID', 'UUID');
+        return $this->hasMany(InvoiceProduct::class, 'invoices_id', 'id');
     }
 
     public function audit()
     {
-        return $this->hasOne(InvoiceAudits::class, 'invoices_UUID', 'UUID');
+        return $this->hasOne(InvoiceAudits::class, 'invoices_id', 'id');
     }
 }

@@ -12,13 +12,13 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('branchs', function (Blueprint $table) {
-            $table->uuid('UUID')->primary();
-            $table->uuid('company_UUID');
+            $table->uuid('id')->primary();
+            $table->uuid('company_id');
             $table->boolean('is_main_branch');
             $table->string('branch_location');
             $table->string('branch_number');
             $table->integer('number_of_employees')->nullable();
-            $table->foreign('company_UUID')->references('UUID')->on('companies')->onDelete('cascade');
+            $table->foreign('company_id')->references('id')->on('companies')->onDelete('cascade');
             $table->softDeletes();
 
             $table->timestamps();

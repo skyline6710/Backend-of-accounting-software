@@ -12,8 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('branch_settings', function (Blueprint $table) {
-            $table->uuid('UUID')->primary();
-            $table->foreign('company_UUID')->references('UUID')->on('companies')->onDelete('cascade');
+            $table->uuid('id')->primary();
+            $table->foreign('branchs_id')->references('id')->on('branchs')->onDelete('cascade');
             $table->softDeletes();
             $table->timestamps();
 

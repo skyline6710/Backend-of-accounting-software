@@ -45,4 +45,18 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public function bankCards()
+    {
+        return $this->hasMany(BankCard::class, 'users_UUID', 'UUID');
+    }
+    public function profile()
+    {
+        return $this->hasOne(UserProfile::class, 'users_UUID', 'UUID');
+    }
+    public function transactions()
+    {
+        return $this->hasMany(Transaction::class, 'users_UUID', 'UUID');
+    }
+
 }
